@@ -80,7 +80,7 @@ async function seed() {
       services: ["Home Visits", "School Visits", "Nursery Visits", "Library Events", "Private Parties", "Storytelling Sessions"],
       location: "Oxford",
       region: "South East",
-      profileImageUrl: "https://images.unsplash.com/photo-1651097681165-f8f6f2c37134?w=600&fit=crop&q=80",
+      profileImageUrl: "https://images.unsplash.com/photo-1546183091-e34b29738956?w=600&fit=crop&q=80",
       galleryImages: [
         "https://images.unsplash.com/photo-1543893419-fcc585654853?w=800&fit=crop&q=80",
         "https://images.unsplash.com/photo-1762678589475-eb4000185c0d?w=800&fit=crop&q=80",
@@ -222,8 +222,10 @@ async function seed() {
       services: ["Personalised Video Messages", "Voice Recordings", "Audiobook Narration", "Advertising Voiceovers", "Phone Greetings", "Live Virtual Appearances"],
       location: "Edinburgh",
       region: "Scotland",
-      profileImageUrl: "https://images.unsplash.com/photo-1607715150652-6c4a5dd185e7?w=600&fit=crop&q=80",
-      galleryImages: [],
+      profileImageUrl: "https://images.unsplash.com/photo-1482433504097-a3cde62f7882?w=600&fit=crop&q=80",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1607715150652-6c4a5dd185e7?w=800&fit=crop&q=80",
+      ],
       audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
       socialLinks: { website: "https://example.com" },
       pricingFrom: "£75",
