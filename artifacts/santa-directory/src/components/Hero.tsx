@@ -1,13 +1,23 @@
+import Image from "next/image";
 import Link from "next/link";
 import SearchBar from "./SearchBar";
 
 export default function Hero() {
   return (
     <section className="relative bg-gradient-to-br from-brand via-brand-dark to-brand overflow-hidden">
+      <Image
+        src="/images/christmas-bg.jpg"
+        alt=""
+        fill
+        className="object-cover opacity-50"
+        priority
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/80 via-brand-dark/70 to-brand/80" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.08),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(201,168,76,0.1),transparent_50%)]" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 lg:pt-40 pb-20 lg:pb-32">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
             Find a Professional

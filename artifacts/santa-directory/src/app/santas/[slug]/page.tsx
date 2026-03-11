@@ -77,7 +77,7 @@ export default async function SantaProfilePage({ params }: PageProps) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-brand to-brand-dark py-8 lg:py-12">
+      <section className="bg-gradient-to-br from-brand to-brand-dark pt-24 lg:pt-28 pb-8 lg:pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="text-sm text-white/60 mb-4">
             <Link href="/santas" className="hover:text-white transition-colors">

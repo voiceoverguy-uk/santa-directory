@@ -50,7 +50,7 @@ export default function SantasListClient({ initialListings }: Props) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-brand to-brand-dark py-12 lg:py-16">
+      <section className="bg-gradient-to-br from-brand to-brand-dark pt-24 lg:pt-28 pb-12 lg:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-3">
             Find a Santa

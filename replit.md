@@ -82,12 +82,17 @@ src/
 └── db/
     ├── index.ts                # Drizzle client + pool
     ├── schema.ts               # santa_listings + enquiries tables
-    └── seed.ts                 # 8 sample Santa profiles
+    └── seed.ts                 # 8 sample Santa profiles (AI-generated images)
 ```
 
 ### Database Tables
 - **santa_listings**: slug, name, headline, type (voice/lookalike), bio, experience, services (jsonb), location, region, badges (booleans), pricing, images, youtube/audio URLs, social links, approved flag
 - **enquiries**: name, email, phone, message, type, santa_slug, timestamps
+
+### Images
+- Profile images and gallery photos are AI-generated and stored in `public/images/santas/`
+- Hero background: `public/images/christmas-bg.jpg` (winter scene at 50% opacity behind brand red overlay)
+- All image references in seed data use local `/images/santas/` paths (no external URLs)
 
 ### Running
 - Dev: `pnpm --filter @workspace/santa-directory run dev` (reads PORT env var)
