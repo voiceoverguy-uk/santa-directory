@@ -83,7 +83,7 @@ async function seed() {
       profileImageUrl: "https://images.unsplash.com/photo-1651097681165-f8f6f2c37134?w=600&fit=crop&q=80",
       galleryImages: [
         "https://images.unsplash.com/photo-1543893419-fcc585654853?w=800&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1549227082-0ea18ce30397?w=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1762678589475-eb4000185c0d?w=800&fit=crop&q=80",
       ],
       socialLinks: { instagram: "https://instagram.com" },
       pricingFrom: "£250",
@@ -110,7 +110,7 @@ async function seed() {
       region: "Yorkshire",
       profileImageUrl: "https://images.unsplash.com/photo-1762678589475-eb4000185c0d?w=600&fit=crop&q=80",
       galleryImages: [
-        "https://images.unsplash.com/photo-1549227082-0ea18ce30397?w=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1762678589475-eb4000185c0d?w=800&fit=crop&q=80",
         "https://images.unsplash.com/photo-1511600173735-a896042389cf?w=800&fit=crop&q=80",
       ],
       socialLinks: { facebook: "https://facebook.com" },
