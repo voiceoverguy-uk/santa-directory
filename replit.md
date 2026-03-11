@@ -82,7 +82,7 @@ src/
 └── db/
     ├── index.ts                # Drizzle client + pool
     ├── schema.ts               # santa_listings + enquiries tables
-    └── seed.ts                 # 8 sample Santa profiles (AI-generated images)
+    └── seed.ts                 # 8 sample Santa profiles (Unsplash images)
 ```
 
 ### Database Tables
@@ -90,9 +90,10 @@ src/
 - **enquiries**: name, email, phone, message, type, santa_slug, timestamps
 
 ### Images
-- Profile images and gallery photos are AI-generated and stored in `public/images/santas/`
+- Profile images and gallery photos use Unsplash URLs (images.unsplash.com)
+- next.config.ts has remotePatterns configured for images.unsplash.com
 - Hero background: `public/images/christmas-bg.jpg` (winter scene at 50% opacity behind brand red overlay)
-- All image references in seed data use local `/images/santas/` paths (no external URLs)
+- Seed data references Unsplash URLs with `?w=600&fit=crop&q=80` for profiles and `?w=800&fit=crop&q=80` for galleries
 
 ### Running
 - Dev: `pnpm --filter @workspace/santa-directory run dev` (reads PORT env var)
