@@ -1,98 +1,25 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/app/_not-found/page-d718a25b2d01c576.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/css/7320a3ad5d0df03d.css",
-      "static/chunks/748-ab3a18cca19d3e32.js",
-      "static/chunks/app/layout-05503ef257d8b56c.js"
-    ],
-    "/api/enquiries/route": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/app/api/enquiries/route-2bf67ee44bd59e84.js"
-    ],
-    "/api/santas/[slug]/route": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/app/api/santas/[slug]/route-2bf67ee44bd59e84.js"
-    ],
-    "/api/santas/route": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/app/api/santas/route-2bf67ee44bd59e84.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/748-ab3a18cca19d3e32.js",
-      "static/chunks/638-e9cc6b2c8e83cddd.js",
-      "static/chunks/app/page-7fed70f73af3ff38.js"
-    ],
-    "/santas/[slug]/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/748-ab3a18cca19d3e32.js",
-      "static/chunks/638-e9cc6b2c8e83cddd.js",
-      "static/chunks/app/santas/[slug]/page-b9dd33643b9cd5b1.js"
-    ],
-    "/about/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/748-ab3a18cca19d3e32.js",
-      "static/chunks/app/about/page-92f2f01f8300f084.js"
-    ],
-    "/contact/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/app/contact/page-92f3933832a2e981.js"
-    ],
-    "/list-your-profile/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/app/list-your-profile/page-92f3933832a2e981.js"
-    ],
-    "/locations/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/748-ab3a18cca19d3e32.js",
-      "static/chunks/app/locations/page-92f2f01f8300f084.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/santas/page": [
-      "static/chunks/webpack-a074681fc855d0ec.js",
-      "static/chunks/03a7cff1-2e3e75b9d026691c.js",
-      "static/chunks/14-74672773b831980e.js",
-      "static/chunks/main-app-f81e5e49f96a55ba.js",
-      "static/chunks/748-ab3a18cca19d3e32.js",
-      "static/chunks/638-e9cc6b2c8e83cddd.js",
-      "static/chunks/app/santas/page-b5bc54bee392da93.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/santas/page.js"
+    ],
+    "/santas/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/santas/[slug]/page.js"
     ]
   }
 }
