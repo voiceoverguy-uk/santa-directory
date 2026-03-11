@@ -1,0 +1,237 @@
+PROJECT: SantaDirectory.com / SantaDirectory.co.uk
+
+OBJECTIVE:
+Build a clean, modern, premium directory website for professional Santas for hire across the UK. This is NOT a booking engine or self-serve membership platform yet. For version 1, the site is a curated listing directory where visitors can search and browse Santa profiles, and potential Santas can contact us to request a listing. We will manually add and manage listings in the early stages. Do NOT build Stripe, login, member dashboard, or profile self-management yet. Structure the code so these can be added later.
+
+IMPORTANT:
+This is a polished MVP / brochure-directory build first.
+Keep it simple, scalable, SEO-friendly, and visually strong.
+Do not over-engineer.
+Do not add fake complexity.
+
+DESIGN DIRECTION:
+- Premium, festive, modern, trustworthy
+- Clean UI, not tacky or cheesy
+- Festive styling should be subtle and elegant
+- Think premium directory / marketplace design
+- Mobile-first responsive layout
+- High-quality card layouts and polished spacing
+- Use a tasteful festive palette:
+  - deep red
+  - warm white / cream
+  - dark green accents if suitable
+  - soft gold accents very sparingly
+- The site should feel more “premium Christmas brand” than “kids’ party leaflet”
+
+SITE POSITIONING:
+SantaDirectory is a trusted directory of professional Santas for hire.
+Visitors can search by area and view polished Santa profile pages.
+Santas who want to be listed can enquire through a form and we will help create their profile manually.
+
+MVP FEATURES TO BUILD NOW:
+
+1. HOMEPAGE
+Build a premium homepage with:
+- Hero section
+- Strong headline:
+  “Find a Professional Santa Near You”
+- Subheading:
+  “Browse trusted Santa performers for home visits, grottos, schools, and corporate events across the UK.”
+- Search bar UI in hero (can be visual for now, but should link to listings page)
+- CTA buttons:
+  - “Find a Santa”
+  - “List Your Santa Profile”
+- Featured Santa cards section
+- Trust/features strip with items such as:
+  - Professional Santa performers
+  - DBS-declared profiles
+  - Real beard Santas available
+  - Direct contact with performers
+- “How it works” section:
+  1. Search by area
+  2. Browse Santa profiles
+  3. Contact Santas directly
+- Popular location links section
+- CTA section for Santas who want to be listed
+- Clean footer with navigation and placeholder policy links
+
+2. LISTINGS PAGE
+Create a search/listings page for browsing Santas.
+Include:
+- Search/filter bar at top
+- Filters UI for:
+  - location
+  - radius
+  - DBS checked / DBS declared
+  - real beard
+  - home visits
+  - corporate events
+  - schools / nurseries
+  - grottos
+  - video available
+- For now, filters can be front-end only using mock/sample data if needed
+- Listing cards should include:
+  - profile image
+  - Santa name
+  - short headline
+  - location
+  - badges
+  - short excerpt
+  - button to view profile
+- Include a map section or map placeholder block ready for future Google Maps integration
+- Layout should feel premium and easy to scan
+
+3. SANTA PROFILE PAGE TEMPLATE
+Create an individual profile page template for each Santa listing.
+Each profile page should include:
+- Santa name / performer name
+- Main profile image
+- Image gallery
+- Location
+- Short headline
+- Full bio
+- Experience / credits
+- Services offered
+- Badge strip
+- Embedded YouTube section (use placeholder/sample embed where relevant)
+- Service area / map placeholder
+- Contact form section
+- Similar Santas / related profiles section at bottom
+The page should feel polished, premium, and SEO-friendly.
+
+4. JOIN / LIST YOUR PROFILE PAGE
+Create a page aimed at Santas who want to be listed.
+This page should:
+- explain the benefits of joining SantaDirectory
+- position the site as a premium directory for professional Santas
+- mention that early listings are being curated manually
+- say that interested Santas can get in touch and we will help build their profile
+- include a simple enquiry form
+- mention future benefits such as profile exposure, SEO visibility, area discovery, and featured profile opportunities
+- mention pricing in a soft way for now, for example:
+  “Listing packages start from £150 per year”
+Do NOT build payment collection yet.
+
+5. CONTACT PAGE
+Create a clean contact page with:
+- general enquiry form
+- simple contact intro
+- option for:
+  - customer enquiry
+  - Santa listing enquiry
+- form should send to a placeholder admin email config
+Use a placeholder email such as:
+enquiries@santadirectory.co.uk
+This should be easy to update later.
+
+6. SAMPLE DATA / DEMO CONTENT
+Add 6 to 8 polished sample Santa profiles so the site feels alive.
+Create realistic placeholder/sample content for now, such as:
+- traditional real beard Santa
+- corporate event Santa
+- storytelling Santa
+- school/nursery Santa
+- luxury grotto Santa
+- media/TV Santa
+Each sample profile should include:
+- name
+- location
+- services
+- bio
+- badges
+- image
+- optional YouTube placeholder
+Use tasteful placeholder/demo images for now.
+Structure the data so real profiles can be swapped in easily later.
+
+7. SITE STRUCTURE / PAGES
+Build the following pages/routes:
+- /
+- /santas
+- /santas/[slug]
+- /list-your-profile
+- /about
+- /contact
+- /locations (or a placeholder locations hub page)
+Optional:
+- /hire-santa-london
+- /hire-santa-manchester
+- /hire-santa-leeds
+These location pages can be starter SEO landing page templates using sample content.
+
+8. ABOUT PAGE
+Create an About page that explains:
+- what SantaDirectory is
+- why it exists
+- that it was created to give families, venues and businesses a better way to find professional Santas
+- that many existing Santa sites are outdated and hard to use
+- that SantaDirectory is building a cleaner, more trustworthy directory experience
+Keep the tone warm, credible and polished.
+
+9. SEO / TECHNICAL REQUIREMENTS
+- Use Next.js
+- Use TypeScript
+- Use Tailwind CSS
+- Make the site responsive
+- Add proper page titles and meta descriptions
+- Use clean semantic HTML
+- Use SEO-friendly URLs
+- Add placeholder structured data where sensible for Organization / WebSite / LocalBusiness style pages if appropriate
+- Create a clean component structure so the site can expand later
+- Prepare the data model / content structure so login, dashboard, Stripe, Google Maps, and profile management can be added later without a rebuild
+
+10. ARCHITECTURE REQUIREMENTS
+For this version:
+- Use local mock data, JSON, or simple content files for listings if needed
+- Do NOT build authentication yet
+- Do NOT build Stripe yet
+- Do NOT build admin dashboard yet
+- Do NOT build self-serve editing yet
+- Do NOT overcomplicate state management
+- Keep codebase clean and scalable
+- Build reusable components for:
+  - header
+  - footer
+  - hero
+  - search/filter bar
+  - listing card
+  - badge pill
+  - gallery
+  - profile sections
+  - CTA blocks
+  - enquiry form
+
+11. BRAND / UX NOTES
+- Domain is SantaDirectory.com and SantaDirectory.co.uk
+- Brand name on site: SantaDirectory
+- Homepage messaging should focus more on “Find a Santa” than on the word “directory”
+- The domain quietly does the SEO work
+- The visible UX should feel human, premium, and simple
+- No cheesy animations
+- No falling snow effects
+- No gimmicks
+
+FIRST DELIVERABLE:
+Please do the following in order:
+1. Create the project structure
+2. Create reusable UI components
+3. Create sample Santa data
+4. Build the homepage
+5. Build the listings page
+6. Build the profile page template
+7. Build the List Your Profile page
+8. Build the About and Contact pages
+9. Add polished placeholder/demo content and imagery
+10. Ensure the whole site feels cohesive and production-quality
+
+IMPORTANT FINAL NOTE:
+This is version 1 of a bigger platform.
+Build it as a polished curated directory first.
+Future phases will add:
+- Google Maps live search
+- member logins
+- self-serve profile editing
+- Stripe annual listing payments
+- admin moderation
+- Santa Voices category
+So please keep the code structured for expansion later, but only build the curated public-facing directory MVP now.
