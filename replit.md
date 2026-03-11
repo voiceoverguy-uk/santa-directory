@@ -2,7 +2,7 @@
 
 ## Overview
 
-pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
+pnpm workspace monorepo using TypeScript. Contains the SantaDirectory.co.uk project — a curated directory for professional Santa performers across the UK — along with shared libraries and an API server scaffold.
 
 ## Stack
 
@@ -10,87 +10,106 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **Node.js version**: 24
 - **Package manager**: pnpm
 - **TypeScript version**: 5.9
-- **API framework**: Express 5
 - **Database**: PostgreSQL + Drizzle ORM
-- **Validation**: Zod (`zod/v4`), `drizzle-zod`
-- **API codegen**: Orval (from OpenAPI spec)
-- **Build**: esbuild (CJS bundle)
+- **Validation**: Zod
 
 ## Structure
 
 ```text
 artifacts-monorepo/
-├── artifacts/              # Deployable applications
-│   └── api-server/         # Express API server
-├── lib/                    # Shared libraries
-│   ├── api-spec/           # OpenAPI spec + Orval codegen config
-│   ├── api-client-react/   # Generated React Query hooks
-│   ├── api-zod/            # Generated Zod schemas from OpenAPI
-│   └── db/                 # Drizzle ORM schema + DB connection
-├── scripts/                # Utility scripts (single workspace package)
-│   └── src/                # Individual .ts scripts, run via `pnpm --filter @workspace/scripts run <script>`
-├── pnpm-workspace.yaml     # pnpm workspace (artifacts/*, lib/*, lib/integrations/*, scripts)
-├── tsconfig.base.json      # Shared TS options (composite, bundler resolution, es2022)
-├── tsconfig.json           # Root TS project references
-└── package.json            # Root package with hoisted devDeps
+├── artifacts/
+│   ├── santa-directory/       # Next.js App Router site (main project)
+│   ├── api-server/            # Express API server (scaffold)
+│   └── mockup-sandbox/        # Component preview server
+├── lib/                       # Shared libraries
+│   ├── api-spec/              # OpenAPI spec + Orval codegen config
+│   ├── api-client-react/      # Generated React Query hooks
+│   ├── api-zod/               # Generated Zod schemas from OpenAPI
+│   └── db/                    # Drizzle ORM schema + DB connection
+├── scripts/                   # Utility scripts
+├── pnpm-workspace.yaml
+├── tsconfig.base.json
+├── tsconfig.json
+└── package.json
 ```
 
-## TypeScript & Composite Projects
+## SantaDirectory.co.uk (`artifacts/santa-directory`)
 
-Every package extends `tsconfig.base.json` which sets `composite: true`. The root `tsconfig.json` lists all packages as project references. This means:
+### Tech Stack
+- **Framework**: Next.js 15 App Router (no Express, no Vite)
+- **Styling**: Tailwind CSS v4 with `@tailwindcss/postcss`
+- **Database**: PostgreSQL via Drizzle ORM (local schema, not shared lib/db)
+- **Primary color**: #9C060B (VoiceoverGuy brand red)
+- **Design**: Premium Christmas aesthetic — cream, dark green, gold accents, charcoal text
 
-- **Always typecheck from the root** — run `pnpm run typecheck` (which runs `tsc --build --emitDeclarationOnly`). This builds the full dependency graph so that cross-package imports resolve correctly. Running `tsc` inside a single package will fail if its dependencies haven't been built yet.
-- **`emitDeclarationOnly`** — we only emit `.d.ts` files during typecheck; actual JS bundling is handled by esbuild/tsx/vite...etc, not `tsc`.
-- **Project references** — when package A depends on package B, A's `tsconfig.json` must list B in its `references` array. `tsc --build` uses this to determine build order and skip up-to-date packages.
+### Custom Colors (defined in `src/app/globals.css` via `@theme` block)
+- `--color-brand`: #9C060B (main red)
+- `--color-brand-dark`: #7A0509
+- `--color-brand-light`: #C4282D
+- `--color-cream`: #FDF8F0
+- `--color-charcoal`: #2D2D2D
+- `--color-charcoal-light`: #5A5A5A
+- `--color-forest`: #1B4332
+- `--color-gold`: #C5961A
 
-## Root Scripts
+### Key Directories
+```
+src/
+├── app/
+│   ├── layout.tsx              # Root layout with Header/Footer
+│   ├── page.tsx                # Homepage (hero, trust strip, featured, CTA)
+│   ├── globals.css             # Tailwind v4 theme with brand palette
+│   ├── santas/
+│   │   ├── page.tsx            # Listings page with search/filters
+│   │   ├── SantasListClient.tsx # Client component for filtering
+│   │   └── [slug]/page.tsx     # Individual Santa profile
+│   ├── about/page.tsx
+│   ├── contact/page.tsx
+│   ├── locations/page.tsx      # Regional SEO hub
+│   ├── list-your-profile/page.tsx
+│   └── api/
+│       ├── santas/route.ts         # GET all santas
+│       ├── santas/[slug]/route.ts  # GET santa by slug
+│       └── enquiries/route.ts      # POST enquiry
+├── components/
+│   ├── Header.tsx, Footer.tsx
+│   ├── Hero.tsx, SearchBar.tsx
+│   ├── ListingCard.tsx, BadgePill.tsx
+│   ├── CTABlock.tsx, EnquiryForm.tsx
+│   ├── Gallery.tsx, TrustStrip.tsx
+│   ├── HowItWorks.tsx, SearchFilterBar.tsx
+│   └── ProfileSection.tsx
+└── db/
+    ├── index.ts                # Drizzle client + pool
+    ├── schema.ts               # santa_listings + enquiries tables
+    └── seed.ts                 # 8 sample Santa profiles
+```
 
-- `pnpm run build` — runs `typecheck` first, then recursively runs `build` in all packages that define it
-- `pnpm run typecheck` — runs `tsc --build --emitDeclarationOnly` using project references
+### Database Tables
+- **santa_listings**: slug, name, headline, type (voice/lookalike), bio, experience, services (jsonb), location, region, badges (booleans), pricing, images, youtube/audio URLs, social links, approved flag
+- **enquiries**: name, email, phone, message, type, santa_slug, timestamps
 
-## Packages
+### Running
+- Dev: `pnpm --filter @workspace/santa-directory run dev` (reads PORT env var)
+- Seed: `pnpm --filter @workspace/santa-directory run seed`
+- Build: `pnpm --filter @workspace/santa-directory run build`
+
+### Pages
+1. `/` — Homepage with hero, trust indicators, featured Santas, CTA
+2. `/santas` — Full listings with client-side search and filter
+3. `/santas/[slug]` — Individual profile with gallery, video, audio, enquiry form
+4. `/about` — About page
+5. `/contact` — Contact form with enquiry types
+6. `/locations` — Regional hub (London, Manchester, Birmingham, etc.)
+7. `/list-your-profile` — Santa registration info page
+
+## Other Packages
 
 ### `artifacts/api-server` (`@workspace/api-server`)
-
-Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` for request and response validation and `@workspace/db` for persistence.
-
-- Entry: `src/index.ts` — reads `PORT`, starts Express
-- App setup: `src/app.ts` — mounts CORS, JSON/urlencoded parsing, routes at `/api`
-- Routes: `src/routes/index.ts` mounts sub-routers; `src/routes/health.ts` exposes `GET /health` (full path: `/api/health`)
-- Depends on: `@workspace/db`, `@workspace/api-zod`
-- `pnpm --filter @workspace/api-server run dev` — run the dev server
-- `pnpm --filter @workspace/api-server run build` — production esbuild bundle (`dist/index.cjs`)
-- Build bundles an allowlist of deps (express, cors, pg, drizzle-orm, zod, etc.) and externalizes the rest
+Express 5 API server scaffold. Not used by SantaDirectory (which uses Next.js API routes).
 
 ### `lib/db` (`@workspace/db`)
-
-Database layer using Drizzle ORM with PostgreSQL. Exports a Drizzle client instance and schema models.
-
-- `src/index.ts` — creates a `Pool` + Drizzle instance, exports schema
-- `src/schema/index.ts` — barrel re-export of all models
-- `src/schema/<modelname>.ts` — table definitions with `drizzle-zod` insert schemas (no models definitions exist right now)
-- `drizzle.config.ts` — Drizzle Kit config (requires `DATABASE_URL`, automatically provided by Replit)
-- Exports: `.` (pool, db, schema), `./schema` (schema only)
-
-Production migrations are handled by Replit when publishing. In development, we just use `pnpm --filter @workspace/db run push`, and we fallback to `pnpm --filter @workspace/db run push-force`.
+Shared database layer using Drizzle ORM. Note: SantaDirectory has its own local db setup in `src/db/`.
 
 ### `lib/api-spec` (`@workspace/api-spec`)
-
-Owns the OpenAPI 3.1 spec (`openapi.yaml`) and the Orval config (`orval.config.ts`). Running codegen produces output into two sibling packages:
-
-1. `lib/api-client-react/src/generated/` — React Query hooks + fetch client
-2. `lib/api-zod/src/generated/` — Zod schemas
-
-Run codegen: `pnpm --filter @workspace/api-spec run codegen`
-
-### `lib/api-zod` (`@workspace/api-zod`)
-
-Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used by `api-server` for response validation.
-
-### `lib/api-client-react` (`@workspace/api-client-react`)
-
-Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
-
-### `scripts` (`@workspace/scripts`)
-
-Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
+OpenAPI 3.1 spec and Orval codegen config.

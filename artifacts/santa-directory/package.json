@@ -1,0 +1,33 @@
+{
+  "name": "@workspace/santa-directory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --port ${PORT:-3000} --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start",
+    "seed": "tsx src/db/seed.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "drizzle-orm": "catalog:",
+    "lucide-react": "catalog:",
+    "next": "^15.3.4",
+    "pg": "^8.20.0",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.14",
+    "@types/node": "catalog:",
+    "@types/pg": "^8.18.0",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "drizzle-kit": "^0.31.9",
+    "tailwindcss": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "~5.9.2"
+  }
+}
