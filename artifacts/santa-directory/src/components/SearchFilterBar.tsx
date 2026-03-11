@@ -17,6 +17,7 @@ const filterOptions = [
   { key: "corporateEvents", label: "Corporate Events" },
   { key: "schoolsNurseries", label: "Schools & Nurseries" },
   { key: "grottos", label: "Grottos" },
+  { key: "videoAvailable", label: "Video Available" },
 ];
 
 export default function SearchFilterBar({

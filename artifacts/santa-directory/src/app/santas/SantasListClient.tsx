@@ -35,9 +35,13 @@ export default function SantasListClient({ initialListings }: Props) {
 
     Object.entries(filters).forEach(([key, active]) => {
       if (active) {
-        results = results.filter(
-          (s) => s[key as keyof SantaListing] === true
-        );
+        if (key === "videoAvailable") {
+          results = results.filter((s) => !!s.youtubeUrl);
+        } else {
+          results = results.filter(
+            (s) => s[key as keyof SantaListing] === true
+          );
+        }
       }
     });
 

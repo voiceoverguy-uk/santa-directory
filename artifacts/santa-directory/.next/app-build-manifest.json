@@ -11,20 +11,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/about/page": [
+    "/api/santas/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/about/page.js"
+      "static/chunks/app/api/santas/route.js"
     ],
-    "/contact/page": [
+    "/santas/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/contact/page.js"
+      "static/chunks/app/santas/[slug]/page.js"
     ],
-    "/list-your-profile/page": [
+    "/santas/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/list-your-profile/page.js"
+      "static/chunks/app/santas/page.js"
     ]
   }
 }
