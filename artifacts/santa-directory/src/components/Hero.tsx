@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-brand via-brand-dark to-brand overflow-hidden">
+    <section data-hero className="relative bg-gradient-to-br from-brand via-brand-dark to-brand overflow-hidden">
       <Image
         src="/images/christmas-bg.jpg"
         alt=""

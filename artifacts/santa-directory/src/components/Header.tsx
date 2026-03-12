@@ -15,7 +15,9 @@ export default function Header() {
     if (!isHome) return;
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
+      const hero = document.querySelector("[data-hero]");
+      const threshold = hero ? hero.getBoundingClientRect().bottom : 60;
+      setScrolled(threshold <= 0);
     };
 
     handleScroll();
