@@ -1,0 +1,15 @@
+{
+  "buildCommand": "pnpm run build",
+  "builds": [
+    {
+      "src": "dist/vercel.cjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/vercel.cjs"
+    }
+  ]
+}
