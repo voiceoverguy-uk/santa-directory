@@ -1,18 +1,9 @@
 {
   "buildCommand": "pnpm run build",
-  "builds": [
+  "rewrites": [
     {
-      "src": "dist/vercel.cjs",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"]
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/vercel.cjs"
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ]
 }
